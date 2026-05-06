@@ -1,135 +1,98 @@
-// ─────────────────────────────────────────────────────────────────────────────
-// ELEVENTY CONFIGURATION
-// This file configures how Eleventy builds your static site
-// Documentation: https://www.11ty.dev/docs/config/
-// ─────────────────────────────────────────────────────────────────────────────
 
-// 📦 Plugin Imports
-const pluginImages = require("@codestitchofficial/eleventy-plugin-sharp-images");
-const pluginMinifier = require("@codestitchofficial/eleventy-plugin-minify");
+
 const pluginSitemap = require("@quasibit/eleventy-plugin-sitemap");
 
-// ⚙️ Configuration Files
 const configSitemap = require("./src/config/plugins/sitemap");
-const configImages = require("./src/config/plugins/images");
+// imports for the various eleventy plugins (navigation & image)
+const eleventyNavigationPlugin = require('@11ty/eleventy-navigation');
+const { DateTime } = require('luxon');
+const Image = require('@11ty/eleventy-img');
+const path = require('path');
 
-// 🔧 Processing Functions
-const less = require("./src/config/processors/less");
-const javascript = require("./src/config/processors/javascript");
-
-// 🛠️ Utilities
-const filterPostDate = require("./src/config/filters/postDate");
-const filterIsoDate = require("./src/config/filters/isoDate");
-const filterTitleCase = require("./src/config/filters/titleCase");
-const isProduction = process.env.ELEVENTY_ENV === "PROD";
-
-module.exports = function (eleventyConfig) {
-  // ═════════════════════════════════════════════════════════════════════════
-  // LANGUAGES
-  // Using Eleventy's build events to process non-template languages
-  // Learn more: https://www.11ty.dev/docs/events/
-  // ═════════════════════════════════════════════════════════════════════════
-
-  /*
-   * JavaScript & CSS Processing
-   * These processors handle bundling, transpiling, and minification
-   * - JavaScript: Compiled with esbuild for modern bundling
-   * - CSS/LESS: Processed and minified for production, including a PostCSS pipeline
-   */
-  eleventyConfig.on("eleventy.after", javascript);
-  eleventyConfig.on("eleventy.after", less);
-
-  // ═════════════════════════════════════════════════════════════════════════
-  // PLUGINS
-  // Extend Eleventy with additional functionality
-  // Learn more: https://www.11ty.dev/docs/plugins/
-  // ═════════════════════════════════════════════════════════════════════════
-
-  /*
-   * 🖼️ Image Optimization
-   * Resize and optimize images for better performance using {% getUrl %}
-   * Documentation: https://github.com/CodeStitchOfficial/eleventy-plugin-sharp-images
-   */
-  eleventyConfig.addPlugin(pluginImages, configImages);
-
-  /*
-   * 🗺️ Sitemap Generation
-   * Creates sitemap.xml automatically using domain from _data/client.json
-   * Documentation: https://github.com/quasibit/eleventy-plugin-sitemap
-   */
-  eleventyConfig.addPlugin(pluginSitemap, configSitemap);
-
-  /*
-   * 📦 Production Minification
-   * Minifies HTML, CSS, JSON, XML, XSL, and webmanifest files
-   * Only runs during production builds (npm run build)
-   * Documentation: https://github.com/CodeStitchOfficial/eleventy-plugin-minify
-   */
-  if (isProduction) {
-    eleventyConfig.addPlugin(pluginMinifier);
+// allows the use of {% image... %} to create responsive, optimised images
+// CHANGE DEFAULT MEDIA QUERIES AND WIDTHS
+async function imageShortcode(src, alt, className, loading, sizes = '(max-width: 600px) 400px, 850px') {
+  // don't pass an alt? chuck it out. passing an empty string is okay though
+  if (alt === undefined) {
+    throw new Error(`Missing \`alt\` on responsiveimage from: ${src}`);
   }
 
-  // ═════════════════════════════════════════════════════════════════════════
-  // PASSTHROUGH COPIES
-  // Copy files directly to output without processing
-  // Learn more: https://www.11ty.dev/docs/copy/
-  // ═════════════════════════════════════════════════════════════════════════
+  // create the metadata for an optimised image
+  let metadata = await Image(`${src}`, {
+    widths: [200, 400, 850, 1920, 2500],
+    formats: ['webp', 'jpeg'],
+    urlPath: '/images/',
+    outputDir: './public/images',
+    filenameFormat: function (id, src, width, format, options) {
+      const extension = path.extname(src);
+      const name = path.basename(src, extension);
+      return `${name}-${width}w.${format}`;
+    },
+  });
 
-  eleventyConfig.addPassthroughCopy("./src/assets"); // Static assets
-  eleventyConfig.addPassthroughCopy("./src/admin"); // CMS admin files
-  eleventyConfig.addPassthroughCopy("./src/_redirects"); // Redirect rules
+  // get the smallest and biggest image for picture/image attributes
+  let lowsrc = metadata.jpeg[0];
+  let highsrc = metadata.jpeg[metadata.jpeg.length - 1];
 
-  // ═════════════════════════════════════════════════════════════════════════
-  // FILTERS
-  // Transform data in templates at build time
-  // Learn more: https://www.11ty.dev/docs/filters/
-  // ═════════════════════════════════════════════════════════════════════════
+  // when {% image ... %} is used, this is what's returned
+  return `<picture class="${className}">
+    ${Object.values(metadata)
+      .map((imageFormat) => {
+        return `  <source type="${imageFormat[0].sourceType}" srcset="${imageFormat
+          .map((entry) => entry.srcset)
+          .join(', ')}" sizes="${sizes}">`;
+      })
+      .join('\n')}
+      <img
+        src="${lowsrc.url}"
+        width="${highsrc.width}"
+        height="${highsrc.height}"
+        alt="${alt}"
+        loading="${loading}"
+        decoding="async">
+    </picture>`;
+}
 
-  // Custom filter to convert file slug to title case (e.g., about-us -> About Us)
-  eleventyConfig.addFilter("titleCase", filterTitleCase);
+module.exports = function (eleventyConfig) {
+  // adds the navigation plugin for easy navs
+  eleventyConfig.addPlugin(eleventyNavigationPlugin);
 
-  /*
-   * 📅 Human-Readable Date Formatting Filter
-   * Converts JavaScript dates to human-readable format
-   * Usage: {{ "2023-12-02" | postDate }}
-   * Powered by Luxon: https://moment.github.io/luxon/api-docs/
-   */
-  eleventyConfig.addFilter("postDate", filterPostDate);
+  eleventyConfig.addPlugin(pluginSitemap, configSitemap);
 
-  /*
-   * 📅 ISO Date Formatting Filter
-   * Converts JavaScript dates to ISO 8601 format
-   * Usage: {{ "2023-12-02" | isoDate }}
-   * Powered by Luxon: https://moment.github.io/luxon/api-docs/
-   */
-  eleventyConfig.addFilter("isoDate", filterIsoDate);
+  // allows css, assets, robots.txt and CMS config files to be passed into /public
+  eleventyConfig.addPassthroughCopy('./src/css/**/*.css');
+  eleventyConfig.addPassthroughCopy('./src/assets');
+  eleventyConfig.addPassthroughCopy('./src/admin');
+  eleventyConfig.addPassthroughCopy('./src/_redirects');
+  eleventyConfig.addPassthroughCopy({ './src/robots.txt': '/robots.txt' });
 
-  // ═════════════════════════════════════════════════════════════════════════
-  // SHORTCODES
-  // Generate dynamic content with JavaScript
-  // Learn more: https://www.11ty.dev/docs/shortcodes/
-  // ═════════════════════════════════════════════════════════════════════════
+  // open on npm start and watch CSS files for changes - doesn't trigger 11ty rebuild
+  eleventyConfig.setBrowserSyncConfig({
+    open: true,
+    files: './public/css/**/*.css',
+  });
 
-  /*
-   * 📆 Current Year Shortcode
-   * Outputs the current year (useful for copyright notices)
-   * Usage: {% year %}
-   * Updates automatically with each build
-   */
-  eleventyConfig.addShortcode("year", () => `${new Date().getFullYear()}`);
+  // allows the {% image %} shortcode to be used for optimised iamges (in webp if possible)
+  eleventyConfig.addNunjucksAsyncShortcode('image', imageShortcode);
 
-  // ═════════════════════════════════════════════════════════════════════════
-  // BUILD CONFIGURATION
-  // Define input/output directories and template engine
-  // ═════════════════════════════════════════════════════════════════════════
+  // normally, 11ty will render dates on blog posts in full JSDate format (Fri Dec 02 18:00:00 GMT-0600). That's ugly
+  // this filter allows dates to be converted into a normal, locale format. view the docs to learn more (https://moment.github.io/luxon/api-docs/index.html#datetime)
+  eleventyConfig.addFilter('postDate', (dateObj) => {
+    return DateTime.fromJSDate(dateObj).toLocaleString(DateTime.DATE_MED);
+  });
+
+  eleventyConfig.addFilter("isoDate", (dateObj) => {
+    return new Date(dateObj).toISOString();
+});
 
   return {
     dir: {
-      input: "src", // Source files directory
-      output: "public", // Build output directory
-      includes: "_includes", // Partial templates directory
-      data: "_data", // Global data files directory
+      input: 'src',
+      includes: '_includes',
+      //layouts: "post.html",
+      output: 'public',
     },
-    htmlTemplateEngine: "njk", // Nunjucks for HTML templates
+    // allows .html files to contain nunjucks templating language
+    htmlTemplateEngine: 'njk',
   };
 };

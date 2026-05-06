@@ -1,0 +1,77 @@
+---
+title: "Portfolio | Example Construct Ltd."
+description: "Portfolio Example Construct Ltd"
+permalink: "/portfolio/"
+lang: en
+---
+
+{% extends "layouts/base.html" %}
+
+{% block head %}
+    <link rel="stylesheet" href="/assets/css/portfolio.css">
+    <link rel="preload" as="image" href="/assets/images/banner.jpg" type="image/jpg"/>
+
+{% endblock %}
+
+{% block body %}
+
+
+<!-- ============================================ -->
+<!--                   Banner                     -->
+<!-- ============================================ -->
+
+
+  <div id="banner">
+    <div class="cs-container">
+        <span class="cs-int-title">Portfolio</span>
+    </div>
+    <!--Background Image-->
+    <picture class="cs-background">
+        <source media="(max-width: 600px)" srcset="/assets/images/banner.jpg">
+        <source media="(min-width: 601px)" srcset="/assets/images/banner.jpg">
+        <img aria-hidden="true" loading="lazy" decoding="async" src="/assets/images/banner.jpg" alt="banner image" width="1920" height="375">
+    </picture>
+</div>                             
+                         
+
+<!-- ============================================ -->
+<!--                 Content Page                 -->
+<!-- ============================================ -->
+
+
+<section id="gallery">
+  <div class="cs-container">
+    <span class="cs-topper">Our Portfolio</span>
+    <h2 class="cs-title">Et orci volutpat, back up generator installations</h2>
+    <div class="cs-image-group">
+      <!-- Row 1-->
+      <div class="cs-row cs-row-1">
+        {% image 'src/assets/images/portfolio/port1.jpg', 'port1', 'cs-picture cs-picture-1', 'lazy', '(max-width: 600px) 200px, 400px'%}
+        {% image 'src/assets/images/portfolio/port4.jpg', 'port2', 'cs-picture cs-picture-2', 'lazy', '(max-width: 600px) 200px, 400px'%}
+        {% image 'src/assets/images/portfolio/port7.jpg', 'port3', 'cs-picture cs-picture-3', 'lazy', '(max-width: 600px) 200px, 400px'%}
+        <!-- To add more images, copy and paste this row's picture tags here in order from cs-picture-1 to cs-picture-3 and they will maintain the same layout-->
+      </div>
+      <!-- Row 2 -->
+      <div class="cs-row cs-row-2">
+        {% image 'src/assets/images/portfolio/port2.jpg', 'port4', 'cs-picture cs-picture-1', 'lazy', '(max-width: 600px) 200px, 400px'%}
+        {% image 'src/assets/images/portfolio/port5.jpg', 'port5', 'cs-picture cs-picture-2', 'lazy', '(max-width: 600px) 200px, 400px'%}
+        {% image 'src/assets/images/portfolio/port8.jpg', 'port6', 'cs-picture cs-picture-3', 'lazy', '(max-width: 600px) 200px, 400px'%}
+        <!-- To add more images, copy and paste this row's picture tags here in order from cs-picture-1 to cs-picture-3 and they will maintain the same layout-->
+      </div>
+      <!-- Row 3 -->
+      <div class="cs-row cs-row-3">
+        {% image 'src/assets/images/portfolio/port3.jpg', 'port7', 'cs-picture cs-picture-1', 'lazy', '(max-width: 600px) 200px, 400px'%}
+        {% image 'src/assets/images/portfolio/port6.jpg', 'port8', 'cs-picture cs-picture-2', 'lazy', '(max-width: 600px) 200px, 400px'%}
+        {% image 'src/assets/images/portfolio/port9.jpg', 'port9', 'cs-picture cs-picture-3', 'lazy', '(max-width: 600px) 200px, 400px'%}
+
+        <!-- To add more images, copy and paste this row's picture tags here in order from cs-picture-1 to cs-picture-3 and they will maintain the same layout-->
+      </div>
+    </div>
+    <a href="" class="button-solid">View Full Gallery</a>
+  </div>
+</section>
+
+                                                                                                            
+{% include 'sections/cta.html' %}
+                         
+{% endblock %}

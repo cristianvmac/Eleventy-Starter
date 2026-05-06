@@ -1,0 +1,193 @@
+/*-- -------------------------- -->
+<---   Side By Side Reverse     -->
+<--- -------------------------- -*/
+
+/* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
+    #sbsr {
+        padding: var(--sectionPadding);
+        /* clips the black background from overflowing the section */
+        overflow: hidden;
+    
+    .cs-container {
+        width: 100%;
+        /* changes to 1280px at tablet */
+        max-width: 34.375rem;
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        /* 48px - 64px */
+        gap: clamp(3rem, 6vw, 4rem);
+    }
+    .cs-content {
+        /* set text align to left if content needs to be left aligned */
+        text-align: left;
+        width: 100%;
+        max-width: 32.625rem;
+        display: flex;
+        flex-direction: column;
+        /* centers content horizontally, set to flex-start to left align */
+        align-items: flex-start;
+    }
+
+     .cs-topper {
+        color: var(--primaryLight);
+    }
+   .cs-title {
+        max-width: 20ch;
+        color: var(--bodyTextColorWhite);
+    }
+   .cs-text {
+        margin-bottom: 1rem;
+        color: var(--bodyTextColorWhite);
+        opacity: 0.8;
+    }
+   .cs-text:last-of-type {
+        margin-bottom: 2rem;
+    }
+    .cs-card-group {
+        width: 100%;
+        max-width: 25rem;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        column-gap: 0.75rem;
+    }
+   .cs-item {
+        list-style: none;
+        width: 32%;
+        max-width: 9.375rem;
+        /* making flex so we can align a heading with 1 line to the bottom */
+        display: flex;
+        flex-direction: column;
+        align-self: stretch;
+        align-content: space-between;
+    }
+    .cs-number {
+        /* 39px - 49px */
+        font-size: clamp(2.4375rem, 5vw, 3.0625rem);
+        line-height: 1.2em;
+        font-weight: 700;
+        text-align: left;
+        color: var(--primaryLight);
+        display: block;
+        /* 8px - 16px */
+        margin: 0 0 clamp(0.5rem, 1vw, 1rem);
+    }
+    .cs-h3 {
+        /* 16px - 20px */
+        font-size: clamp(1rem, 2vw, 1.25rem);
+        line-height: 1.2em;
+        text-align: left;
+        /* auto margin top will push text to bottom if there's only one line */
+        margin: auto 0 0;
+        color: var(--bodyTextColorWhite);
+    }
+     .cs-image-group {
+        width: 100%;
+        max-width: 33.875rem;
+        /* pushes down by the same amount the images overlap the image group */
+        margin: 0 0 2.5rem;
+        display: flex;
+        /* separate children to opposite sides of the room */
+        justify-content: center;
+        align-content: space-between;
+        flex-wrap: wrap;
+        gap: clamp(0.5rem, 2vw, 1.25rem);
+        position: relative;
+    }
+     .cs-image-group:before {
+        /* Black background */
+        content: "";
+        width: 100vw;
+        height: 200vw;
+        background: #1a1a1a;
+        opacity: 1;
+        position: absolute;
+        display: block;
+        top: 80%;
+        left: 50%;
+        z-index: -1;
+        transform: translateX(-50%);
+    }
+     .cs-picture {
+        width: 48%;
+        /* 218px - 264px */
+        min-height: clamp(13.625rem, 25vw, 16.5rem);
+        aspect-ratio: 0.73394495;
+        position: relative;
+        display: block;
+    }
+     .cs-picture:nth-of-type(2) {
+        /* move slightly down */
+        transform: translateY(2.5rem);
+    }
+    .cs-picture:nth-of-type(4) {
+        /* move slightly up */
+        transform: translateY(2.5rem);
+    }
+     .cs-picture img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        /* Makes image act as a background image to the picture element */
+        object-fit: cover;
+    }
+    }
+}
+/* Tablet - 768px */
+@media only screen and (min-width: 48rem) {
+    #sbsr {
+        /* we use margin here instead of padding because we want to create the space OUTSIDE the section.  The overflow on the section clips the boxes we made to make the slanted designs, so we need to push from the outside of the section with margin to create space between it and the next section.  If the section above this Stitch has a white background, add margin-top: 0. If it has a white section below it, add margin-bottom: 0. This will allow more proper spacing and not have too much empty space.  If both sections above and below this Stitch have white backgrounds, you can just remove this margin all together */
+        margin: var(--sectionPadding);
+        margin-left: 0;
+        margin-right: 0;
+    
+    .cs-container {
+        max-width: 80rem;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        /* 44px - 108px */
+        column-gap: clamp(2.75rem, calc(7.85vw), 6.75rem);
+    }
+    .cs-card-group {
+        max-width: 100%;
+    }
+    .cs-image-group {
+        /* 318px - 542px */
+        width: clamp(19.875rem, 46.9vw, 33.875rem);
+        /* prevents flexbox from squishing it */
+        flex: none;
+        /* sends it to the right in the 2nd position */
+        order: 2;
+    }
+     .cs-image-group:before {
+        /* Black background, moved to the image-group at tablet */
+        content: "";
+        width: 80vw;
+        height: 300%;
+        top: 50%;
+        left: auto;
+        right: 80%;
+        transform: translateY(-50%);
+    }
+     .cs-picture {
+        width: 47.8%;
+        aspect-ratio: initial;
+    }
+    }
+}
+/* Dark Mode */
+@media only screen and (min-width: 0rem) {
+    body.dark-mode #sbsr .cs-image-group:before {
+        background-color: rgba(0, 0, 0, 0.4);
+    }
+}
+
+                                

@@ -1,0 +1,118 @@
+---
+title: "FAQ | Example Construct Ltd."
+description: "Find answers to common questions about Example Construct Ltd. services, etc"
+permalink: "/faq/"
+lang: en
+---
+
+{% extends "layouts/base.html" %}
+ 
+{% block head %}
+    <link rel="stylesheet" href="/assets/css/faq.css">
+    <link rel="preload" as="image" href="/assets/images/banner.jpg" type="image/jpg"/>
+{% endblock %}
+
+{% block body %}
+
+
+<!-- ============================================ -->
+<!--                   Banner                     -->
+<!-- ============================================ -->
+
+<div id="banner">
+    <div class="cs-container">
+        <span class="cs-int-title">FAQ</span>
+    </div>
+    <!--Background Image-->
+    <picture class="cs-background">
+        <source media="(max-width: 600px)" srcset="/assets/images/banner.jpg">
+        <source media="(min-width: 601px)" srcset="/assets/images/banner.jpg">
+        <img aria-hidden="true" loading="lazy" decoding="async" 
+            src="/assets/images/banner.jpg" alt="image banner" width="1920" height="375">
+    </picture>
+</div>                               
+
+<!-- ============================================ -->
+<!--                    FAQ                       -->
+<!-- ============================================ -->
+
+<section id="faq">
+  <div class="cs-container">
+    <div class="cs-content">
+      <span class="cs-topper">Example Construct Ltd.</span>
+      <h2 class="cs-title">Frequently Asked Questions</h2>
+      <p class="cs-text">Have some questions? Check out our FAQ, where we answer our most common questions.</p>
+    </div>
+
+    <div class="cs-flex-group">
+      <ul class="cs-faq-group">
+        <li class="cs-faq-item active">
+          <button class="cs-button">How long does a construction project usually take?</button>
+          <p class="cs-item-p">Project timelines depend on the size and complexity of the build. 
+            Smaller renovation projects can take a few weeks, while full home builds or major structural work may take several months. 
+            Once we review your plans, we provide a clear timeline and keep you updated throughout the process.
+          </p>
+        </li>
+        <li class="cs-faq-item">
+          <button class="cs-button">What’s the difference between a fixed price and a staged payment plan?</button>
+          <p class="cs-item-p">
+            The main difference is how payments are structured.
+            With a fixed price, you receive a detailed quote upfront and the total project cost is agreed before work begins.
+            With a staged payment plan, payments are divided into milestones (e.g., foundation, structure, roofing, finishing).
+            This makes budgeting more manageable and ensures transparency at every stage. The best option depends on your budget, project scope, and financial planning preferences.
+          </p>
+        </li>
+        <li class="cs-faq-item">
+          <button class="cs-button">Do you charge VAT?</button>
+          <p class="cs-item-p">We work with a trusted network of licensed subcontractors for specialized tasks such as electrical, plumbing, and roofing. 
+            All professionals we work with meet industry standards and are fully qualified.
+          </p>
+        </li>
+        <li class="cs-faq-item">
+          <button class="cs-button">What are the advantages of hiring a professional construction company?</button>
+          <p class="cs-item-p">
+            Working with an experienced construction team ensures: Compliance with local building regulations, 
+            High-quality workmanship, Proper project management, Cost control and budgeting accuracy, Long-term structural safety
+            We focus on doing things properly the first time, prioritizing quality and long-term durability over shortcuts.
+          </p>
+        </li>
+        <li class="cs-faq-item">
+          <button class="cs-button">Is my construction project insured and protected?</button>
+          <p class="cs-item-p">Yes. We carry appropriate insurance coverage, and all work is completed according to current safety regulations and building codes. 
+            This protects both your property and our team throughout the project.
+          </p>
+        </li>
+        <li class="cs-faq-item">
+          <button class="cs-button">Do you help with permits and approvals?</button>
+          <p class="cs-item-p">Yes. We can assist with planning permissions, building permits, and necessary inspections depending on your location and project type.
+             We ensure your project meets all legal and regulatory requirements.
+            </p>
+        </li>
+        <li class="cs-faq-item">
+          <button class="cs-button">How soon can you start my project?</button>
+          <p class="cs-item-p">
+            Start times depend on current workload and project scope. 
+            After our initial consultation and approval of the quote, we’ll provide a clear start date and estimated completion timeline.
+          </p>
+        </li>
+        <li class="cs-faq-item">
+          <button class="cs-button">Is the construction compliant with regulations and standards?</button>
+          <p class="cs-item-p">Yes. All projects are completed in accordance with local building codes, safety standards, and environmental regulations. 
+            Quality control and compliance are central to everything we do.
+          </p>
+        </li>
+      </ul>
+
+      <div class="cs-cta">
+        <h3 class="cs-h3">Don’t see the answer you need?</h3>
+        <p class="cs-cta-p">That’s ok. Just drop a message and we will get back to you ASAP.</p>
+        <a href="/contact/" class="cs-button-solid">Contact Us!</a>
+      </div>
+    </div>
+  </div>
+</section>
+                         
+
+    {% include 'sections/cta.html' %}
+
+{% endblock %}
