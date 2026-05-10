@@ -440,6 +440,8 @@ body {
   }
 }
 
+
+
 /* ==========================================================================
    Mobile Navigation — max-width: 1023px (63.9375rem)
    ========================================================================== */
@@ -459,7 +461,7 @@ body {
     position: fixed;
     z-index: 10000;
     height: 3.75rem; /* or whatever your desired mobile nav height is */
-
+    /*height: auto;*/
   }
 
   #cs-navigation::before {
@@ -650,7 +652,8 @@ body {
 
   #cs-navigation .cs-li-link {
     font-size: clamp(1rem, 2.5vw, 1.5rem);
-    color: inherit;
+    /*color: inherit;*/
+    color: var(--headerColor);
     line-height: 1.2em;
     text-decoration: none;
     margin: 0;
@@ -708,7 +711,7 @@ body {
 
 @media only screen and (max-width: 63.9375rem) {
   #cs-navigation .cs-dropdown {
-    color: var(--bodyTextColorWhite);
+    color: var(--bodyTextColor);
     color: var(--headerColor);
     position: relative;
   }
@@ -739,7 +742,8 @@ body {
     width: 0.9375rem;
     height: auto;
     display: inline-block;
-    color: inherit;
+   /* color: inherit;*/
+    color: var(--headerColor);
     transform: rotate(180deg);
     transition: 0.3s;
   }
@@ -753,7 +757,8 @@ body {
     background-color: var(--primary);
     opacity: 0;
     display: flex;
-    visibility: hidden;
+    /*visibility: hidden;*/
+    visibility: visible;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-end;
@@ -762,6 +767,7 @@ body {
     transform: scale(0);
     transition: padding 0.3s, margin 0.3s, height 0.3s, opacity 0.3s, transform 0.3s, visibility 0.3s;
     transform-origin: top right;
+    
   }
 
   #cs-navigation .cs-drop-li {
@@ -836,6 +842,7 @@ body {
     transform: scaleY(0);
     transition: transform 0.3s, visibility 0.3s, opacity 0.3s;
     transform-origin: top;
+    color: var(--bodyTextColor);
   }
 
   #cs-navigation .cs-drop-li {
@@ -955,7 +962,7 @@ body {
     z-index: 100;
   }
 
-  #cs-navigation .cs-logo svg {
+  #cs-navigation .cs-logo img {
     width: 100%;
     height: 100%;
     object-fit: contain;
@@ -1027,7 +1034,8 @@ body {
     background-color: var(--primaryLight);
   }
 }*/
-                                
+
+
                                 
 /*-- -------------------------- -->
 <---          Banner            -->
