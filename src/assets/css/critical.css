@@ -5,7 +5,7 @@
    The rest of the home page styles in local.css will be deferred and
    ───────────────────────────────────────────────────────────────────────────── */
 
- /*-- -------------------------- */
+/*-- -------------------------- */
 /*           Hero              */
 /*---------------------------- */
 
@@ -15,7 +15,7 @@
     font-family: "Roboto", "Arial", sans-serif;
     text-align: center;
     padding: 0 1rem;
-    padding-bottom: 6.25rem;
+    /*padding-bottom: 6.25rem;*/
     position: relative;
     z-index: 1;
     overflow: hidden;
@@ -56,9 +56,8 @@
 
   #hero .cs-container {
     width: 100%;
-    max-width: 80em;
+    max-width: 80rem;
     margin: auto;
-    padding: clamp(9em, 25.95vw, 17.5em) 0;
     position: relative;
   }
 
@@ -107,31 +106,64 @@
     color: var(--bodyTextColorWhite);
   }
 
-  #hero .cs-button-solid {
+  /*#hero .cs-button-solid {
     line-height: clamp(2.875em, 5.5vw, 3.5em);
     height: initial;
     margin-bottom: 1rem;
-  }
+  }*/
 
-  #hero .cs-button-transparent {
-    font-size: 1rem;
-    font-weight: 700;
-    line-height: clamp(2.875em, 5.5vw, 3.5em);
-    text-decoration: none;
-    width: 11.25rem;
-    height: clamp(2.875em, 5.5vw, 3.5em);
-    margin: 0 0.5rem;
-    box-sizing: border-box;
-    padding: 0;
-    color: #fff;
-    background-color: transparent;
-    border: 1px solid var(--bodyTextColorWhite);
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    z-index: 1;
+      #hero .cs-button-solid {
+        font-size: 1rem;
+        /* 46px - 56px */
+        line-height: clamp(2.875rem, 5.5vw, 3.5rem);
+        width: 11.25rem;
+        text-decoration: none;
+        font-weight: 700;
+        margin: 0 1.25rem 1rem 0;
+        color: #fff;
+        padding: 0;
+        background-color: var(--primary);
+        display: inline-block;
+        position: relative;
+        z-index: 1;
+    }
+    #hero .cs-button-solid:before {
+        content: "";
+        position: absolute;
+        display: block;
+        height: 100%;
+        width: 0%;
+        background: #000;
+        opacity: 1;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        transition: width 0.3s;
   }
+  #hero .cs-button-solid:hover:before {
+        width: 100%;
+  }
+  #hero .cs-button-transparent {
+        font-size: 1rem;
+        /* 46px - 56px */
+        line-height: clamp(2.875rem, 5.5vw, 3.5rem);
+        width: 11.25rem;
+        /* 46px - 56px */
+        height: clamp(2.875rem, 5.5vw, 3.5rem);
+        text-decoration: none;
+        font-weight: 700;
+        margin: 0;
+        color: #fff;
+        padding: 0;
+        background-color: transparent;
+        border: 1px solid var(--bodyTextColorWhite);
+        box-sizing: border-box;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        z-index: 1;
+    }
 
   #hero .cs-button-transparent::before {
     content: "";
@@ -199,104 +231,114 @@
   body.dark-mode #hero .cs-background::before {
     opacity: 0.8;
   }
-}                               
-
+}
 
 /*-- -------------------------- -->
 <---          Services          -->
 <--- -------------------------- -*/
+
 /* Mobile */
 @media only screen and (min-width: 0em) {
-  .service {
-    border-radius: 0.3125em;
-    margin: auto;
-    margin-top: -10.4375em;
-    position: relative;
-    z-index: 100;
-    background: #fff;
-    width: 90%;
-    max-width: 82.5em;
-    padding: 3.125em 1.25em;
-    border-top: 0.375em solid var(--primary);
-    box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.05);
-    margin-bottom: 3.125em;
-  
-   .card {
-    display: block;
-    width: 100%;
-    max-width: 22.3125em;
-    margin: auto;
-    margin-bottom: 3.125em;
-  }
-   .card:last-of-type {
-    margin-bottom: 0;
-  }
-   .card picture {
-    background: var(--primary);
-    width: 5.5em;
-    height: 5.5em;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: auto;
-    margin-bottom: 1.4375em;
-    border-radius: 50%;
-  }
-   .card picture img {
-    width: 3em;
-    height: 3em;
-  }
-   .card h2 {
-    text-align: center;
-    font-size: 2em;
-    line-height: 1.35em;
-    font-weight: 700;
-    color: #1a1a1a;
-    margin-bottom: 0.65em;
-  }
-   .card p {
-    text-align: center;
-    line-height: 1.33333333em;
-    width: 100%;
-    opacity: .7;
-  }
+    .services {
+        width: 90%;
+        max-width: 82.5em;
+        margin: auto;
+        margin-top: -10.4375em;
+        margin-bottom: 3.125em;
+        padding: 3.125em 1.25em;
+        background: #fff;
+        box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.05);
+        border-top: 0.375em solid var(--primary);
+        border-radius: 0.3125em;
+        position: relative;
+        z-index: 100;
+    }
+
+    .services .card {
+        width: 100%;
+        max-width: 22.3125em;
+        margin: auto;
+        margin-bottom: 3.125em;
+        display: block;
+    }
+
+    .services .card:last-of-type {
+        margin-bottom: 0;
+    }
+
+    .services .card picture {
+        width: 5.5em;
+        height: 5.5em;
+        margin: auto;
+        margin-bottom: 1.4375em;
+        background: var(--primary);
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .services .card picture img {
+        width: 3em;
+        height: 3em;
+    }
+
+    .services .card h2 {
+        font-size: 2em;
+        font-weight: 700;
+        line-height: 1.35em;
+        text-align: center;
+        margin-bottom: 0.65em;
+        color: #1a1a1a;
+    }
+
+    .services .card p {
+        line-height: 1.3333em;
+        text-align: center;
+        width: 100%;
+        opacity: 0.7;
+    }
 }
-}
+
 /* Inbetween */
 @media only screen and (min-width: 768px) {
-  .service {
-    font-size: min(1.8vw, 1em);
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    width: 98%;
-  
-   .card {
-    margin: 0;
-    max-width: 20.3125em;
-  }
+    .services {
+        font-size: min(1.8vw, 1em);
+        width: 98%;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+
+    .services .card {
+        max-width: 20.3125em;
+        margin: 0;
+    }
 }
-}
+
 /* Large Desktop */
 @media only screen and (min-width: 1300px) {
-  .service {
-    padding: 3.125em 5em;
-  
-   .card {
-    max-width: 22.3125em;
-  }
+    .services {
+        padding: 3.125em 5em;
+    }
+
+    .services .card {
+        max-width: 22.3125em;
+    }
 }
-}
+
 /* Dark mode */
 @media only screen and (min-width: 0em) {
-    body.dark-mode #service {
+    body.dark-mode #services {
         background: var(--medium);
-        picture {
-            background: var(--primaryDark);
-        }
-        h2 {
-            color: #fff;
-            font-weight: bold;
-        }
+    }
+
+    body.dark-mode #services picture {
+        background: var(--primaryDark);
+    }
+
+    body.dark-mode #services h2 {
+        font-weight: bold;
+        color: #fff;
     }
 }

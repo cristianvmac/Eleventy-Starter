@@ -41,17 +41,17 @@ tags: "sitemap" # content/content.json will make sure that all pages in content/
 			<p class="cs-text">This starter kit gives you a ready-made website setup built with Astro, so you can reuse sections, manage your content in one place, and grow your site easily. It also includes a built-in blog with Decap CMS.</p>
 			<a href="/about/" class="cs-button-solid">Explore More</a>
 			<a href="/contact/" class="cs-button-transparent">
-				<Icon name="play" class="cs-img" />
+                <img class="cs-img" decoding="async" src="https://csimg.nyc3.digitaloceanspaces.com/Hero/play.svg" alt="play icon" width="17" height="17" aria-hidden="true">
 				Get in Touch
 			</a>
 		</div>
 	</div>
 
     <!-- Background Image -->
-    <picture class="cs-background">
-        <source media="(max-width: 600px)" srcset="./assets/images/hero2.jpg">
-        <source media="(min-width: 601px)" srcset="./assets/images/hero2.jpg">
-        <img decoding="async" src="./assets/images/hero2.jpg" alt="construction" width="2250" height="1500" aria-hidden="true">
+    <picture class="cs-picture">
+        <source media="(max-width: 600px)" srcset="/assets/images/hero/hero3.jpg">
+        <source media="(min-width: 601px)" srcset="/assets/images/hero/hero3.jpg">
+        <img decoding="async" src="/assets/images/hero/hero3.jpg" alt="hero image" width="2250" height="1500" aria-hidden="true">
     </picture>
 </section>
 
@@ -59,148 +59,70 @@ tags: "sitemap" # content/content.json will make sure that all pages in content/
     <!--                   Services                   -->
     <!-- ============================================ -->
 
-    <section id="h-services-143">
-        <ul class="cs-card-group">
-            <li class="cs-item">
-                <picture class="cs-icon">
-                    <img loading="lazy" decoding="async" src="/assets/svgs/s1.svg" alt="icon" width="52" height="52" aria-hidden="true">
-                </picture>
-                <h2 class="cs-title">
-                    Full Kitchen Remodel
-                </h2>
-                <p class="cs-text">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                </p>
-            </li>
-            <li class="cs-item">
-                <picture class="cs-icon">
-                    <img loading="lazy" decoding="async" src="/assets/svgs/s2.svg" alt="icon" width="52" height="52" aria-hidden="true">
-                </picture>
-                <h2 class="cs-title">
-                    Exterior Repairs
-                </h2>
-                <p class="cs-text">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                </p>
-            </li>
-            <li class="cs-item">
-                <picture class="cs-icon">
-                    <img loading="lazy" decoding="async" src="/assets/svgs/s3.svg" alt="icon" width="52" height="52" aria-hidden="true">
-                </picture>
-                <h2 class="cs-title">
-                    Utility Maintenance
-                </h2>
-                <p class="cs-text">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                </p>
-            </li>
-            <li class="cs-item">
-                <picture class="cs-icon">
-                    <img loading="lazy" decoding="async" src="/assets/svgs/s4.svg" alt="icon" width="52" height="52" aria-hidden="true">
-                </picture>
-                <h2 class="cs-title">
-                    Design Consultation
-                </h2>
-                <p class="cs-text">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                </p>
-            </li>
-        </ul>
-    </section>
-
- 
-<!-- ============================================ -->
-<!--                  Services                    -->
-<!-- ============================================ -->
-
-<section id="service" class="service">
-  <!-- Get Icons From flaticon.com -->
+<section id="services" class="services">
   <div class="card">
     <picture>
-      <img
-        aria-hidden="true"
-        decoding="async"
-        src="/assets/svgs/service1.svg"
-        alt="appliance"
-        width="48"
-        height="48"
-/>
+        <img loading="lazy" decoding="async" src="/assets/svgs/service4.svg" alt="icon" width="48" height="48" aria-hidden="true">
     </picture>
     <h2>Service 1</h2>
-    <p>Talk about the service with keywords people will be searching for it by. Keep it 1-2 sentences.</p>
+    <p>
+      Write a short description of the service using common search terms. Aim for 1–2 sentences.
+    </p>
   </div>
   <div class="card">
     <picture>
-      <img
-        aria-hidden="true"
-        decoding="async"
-        src="/assets/svgs/service2.svg"
-        alt="appliance"
-        width="48"
-        height="48"
-/>
+        <img loading="lazy" decoding="async" src="/assets/svgs/service5.svg" alt="icon" width="48" height="48" aria-hidden="true">
     </picture>
     <h2>Service 2</h2>
-    <p>Talk about the service with keywords people will be searching for it by. Keep it 1-2 sentences.</p>
+    <p>
+      Write a short description of the service using common search terms. Aim for 1–2 sentences.
+    </p>
   </div>
   <div class="card">
     <picture>
-      <img
-        aria-hidden="true"
-        decoding="async"
-        src="/assets/svgs/service3.svg"
-        alt="appliance"
-        width="48"
-        height="48"
-/>
+      <img loading="lazy" decoding="async" src="/assets/svgs/service6.svg" alt="icon" width="48" height="48" aria-hidden="true">
     </picture>
     <h2>Service 3</h2>
-    <p>Talk about the service with keywords people will be searching for it by. Keep it 1-2 sentences.</p>
+    <p>
+      Write a short description of the service using common search terms. Aim for 1–2 sentences.
+    </p>
   </div>
 </section>
+
                                 
 
 <!-- ============================================ -->
-<!--                  Services                    -->
+<!--                  Side By Side                -->
 <!-- ============================================ -->
 
-<section id="services">
-    <div class="cs-container">
-        <div class="cs-content">
-            <span class="cs-topper">Services</span>
-            <h2 class="cs-title">What We Build</h2>
-            <p class="cs-text">
-                We are a full service construction company specializing in custom home builds, kitchen and bathroom remodels, and commercial fit-outs delivered on time and on budget.
-            </p>
-            <a href="/portfolio.html" class="cs-button-solid">View Portfolio</a>
-        </div>
-        <ul class="cs-card-group">
-            <li class="cs-item">
-                <h3 class="cs-h3">Custom Home Builds</h3>
-                <picture class="cs-picture">
-                    <source media="(max-width: 600px)" srcset="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=600">
-                    <source media="(min-width: 601px)" srcset="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=600">
-                    <img aria-hidden="true" loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=600" alt="custom home build" width="275" height="132">
-                </picture>
-            </li>
-            <li class="cs-item">
-                <h3 class="cs-h3">Kitchen & Bathroom Remodels</h3>
-                <picture class="cs-picture">
-                    <source media="(max-width: 600px)" srcset="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600">
-                    <source media="(min-width: 601px)" srcset="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600">
-                    <img aria-hidden="true" loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600" alt="kitchen remodel" width="275" height="132">
-                </picture>
-            </li>
-            <li class="cs-item">
-                <h3 class="cs-h3">Commercial Fit-Outs</h3>
-                <picture class="cs-picture">
-                    <source media="(max-width: 600px)" srcset="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=600">
-                    <source media="(min-width: 601px)" srcset="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=600">
-                    <img aria-hidden="true" loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=600" alt="commercial fit-out" width="275" height="132">
-                </picture>
-            </li>
-        </ul>
-    </div>
+<section id="sbs">
+	<div class="cs-container">
+		<!-- Left Image Section -->
+		<div class="cs-left">
+			<picture class="cs-picture">
+                    <source media="(max-width: 600px)" srcset="/assets/images/services/sbs.jpg">
+                    <source media="(min-width: 601px)" srcset="/assets/images/services/sbs.jpg">
+                    <img aria-hidden="true" loading="lazy" decoding="async" src="/assets/images/services/sbs.jpg" alt="commercial fit-out" width="275" height="132">
+            </picture>
+		</div>
+		<!-- Right Content Section-->
+		<div class="cs-right">
+			<span class="cs-topper">About Us</span>
+			<h2 class="cs-title">About Company Title</h2>
+			<p class="cs-text">
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+			</p>
+			<p class="cs-text">
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.			
+			</p>
+			<div class="cs-flex-group">
+				<p class="cs-flex-p">Successus clientium nostrorum successus noster est. Dediti sumus eventibus qui per se loquuntur.</p>
+				<span class="cs-name">John Doe</span>
+				<span class="cs-job">CEO & Founder</span>
+			</div>
+			<a href="/about/" class="cs-button-solid">More About Us</a>
+		</div>
+	</div>
 </section>
 
 <!-- ============================================ -->
