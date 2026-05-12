@@ -1177,6 +1177,10 @@ body {
 <---            CTA             -->
 <--- -------------------------- -*/
 
+/*-- -------------------------- -->
+<---            CTA             -->
+<--- -------------------------- -*/
+
 /* Mobile - 360px */
 @media only screen and (min-width: 0rem) {
     #cta {
@@ -1281,7 +1285,6 @@ body {
     }
   }
 }
-
                                 
 
 /*-- -------------------------- -->
@@ -1292,60 +1295,61 @@ body {
 @media only screen and (min-width: 0px) {
 
   #cs-footer {
-    padding: var(--sectionPadding);
     background-color: #1a1a1a;
-  
+    padding: 2rem 2rem;
+  }
 
-  .cs-container {
+  #cs-footer .cs-container {
     width: 100%;
-    max-width: 34.375rem; /* 550/16 */
+    max-width: 34.375rem;
     margin: auto;
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
     flex-wrap: wrap;
-    column-gap: 5.5rem; /* 88/16 */
-    row-gap: 2rem; /* 32/16 */
+    column-gap: 5.5rem;
+    row-gap: 2rem;
+    padding: 0 1rem;
   }
 
-  .cs-logo-group {
+  #cs-footer .cs-logo-group {
     width: 100%;
     position: relative;
   }
 
-  .cs-logo {
+  #cs-footer .cs-logo {
     width: clamp(13.125rem, 8vw, 15rem);
-    height: auto;
+    height: 5rem;
     display: block;
     margin-bottom: clamp(1.75rem, 4.17vw, 2.75rem);
   }
 
-  .cs-logo-img {
+  #cs-footer .cs-logo-img {
     width: 100%;
     height: auto;
   }
 
-  .cs-logo-img.dark {
+  #cs-footer .cs-logo-img.dark {
     display: none;
   }
 
-  .cs-text {
+  #cs-footer .cs-text {
     color: var(--bodyTextColorWhite);
-    margin-bottom: 1rem; /* 16/16 */
+    margin-bottom: 1rem;
   }
 
- .cs-social {
+  #cs-footer .cs-social {
     display: inline-flex;
     flex-direction: column;
     justify-content: flex-start;
-    gap: 0.75rem; /* 12/16 */
+    gap: 0.75rem;
     position: absolute;
     top: 0;
     right: 0;
   }
 
- .cs-social-link {
-    width: 1.5rem; /* 24/16 */
+  #cs-footer .cs-social-link {
+    width: 1.5rem;
     height: 1.5rem;
     background-color: #4e4b66;
     border-radius: 50%;
@@ -1357,33 +1361,32 @@ body {
     transition: transform 0.3s, background-color 0.3s;
   }
 
-  .cs-social-link:hover {
+  #cs-footer .cs-social-link:hover {
     background-color: #1a1a1a;
     transform: translateY(-0.1875rem);
   }
 
-  .cs-social-img {
-    height: 0.8125rem; /* 13/16 */
+  #cs-footer .cs-social-img {
+    height: 0.8125rem;
     width: auto;
     display: block;
   }
 
-  /* Navigation */
- .cs-nav {
+  #cs-footer .cs-nav {
     padding: 0;
     margin: 0;
   }
 
-  .cs-nav-li {
+  #cs-footer .cs-nav-li {
     list-style: none;
     margin-bottom: 1rem;
   }
 
-  .cs-nav-li:last-of-type {
+  #cs-footer .cs-nav-li:last-of-type {
     margin-bottom: 0;
   }
 
-  .cs-header {
+  #cs-footer .cs-header {
     font-size: 1rem;
     line-height: 1.5em;
     font-weight: 700;
@@ -1391,16 +1394,16 @@ body {
     position: relative;
   }
 
-  .cs-header:after {
+  #cs-footer .cs-header:after {
     content: "";
-    width: 2rem; /* 32/16 */
-    height: 0.25rem; /* 4/16 */
-    margin: 1rem auto 1.5rem 0; /* 16 / 24 */
+    width: 2rem;
+    height: 0.25rem;
+    margin: 1rem auto 1.5rem 0;
     background: var(--primary);
     display: block;
   }
 
-  .cs-nav-link {
+  #cs-footer .cs-nav-link {
     font-size: 1rem;
     text-decoration: none;
     line-height: 1.5em;
@@ -1408,10 +1411,10 @@ body {
     position: relative;
   }
 
-  .cs-nav-link:before {
+  #cs-footer .cs-nav-link:before {
     content: "";
     width: 0%;
-    height: 0.125rem; /* 2/16 */
+    height: 0.125rem;
     background: var(--bodyTextColorWhite);
     position: absolute;
     bottom: -0.125rem;
@@ -1419,27 +1422,26 @@ body {
     transition: width 0.3s;
   }
 
-  .cs-nav-link:hover:before {
+  #cs-footer .cs-nav-link:hover:before {
     width: 100%;
   }
 
-  /* Contact */
-  .cs-contact {
+  #cs-footer .cs-contact {
     margin: 0;
     padding: 0;
     width: 35%;
   }
 
-  .cs-contact-li {
+  #cs-footer .cs-contact-li {
     list-style: none;
     margin-bottom: 0;
   }
 
-  .cs-contact-li:last-of-type {
+  #cs-footer .cs-contact-li:last-of-type {
     margin-bottom: 0;
   }
 
- .cs-contact-link {
+  #cs-footer .cs-contact-link {
     font-size: 1rem;
     text-decoration: none;
     line-height: 1.5em;
@@ -1448,60 +1450,61 @@ body {
     display: inline-block;
   }
 
-  .cs-contact-link:hover {
+  #cs-footer .cs-contact-link:hover {
     text-decoration: underline;
   }
 
-  .cs-address {
+  #cs-footer .cs-address {
     font-size: 1rem;
-    margin-bottom: 1.25rem; /* 20/16 */
-  }
+    margin-bottom: 1.25rem;
   }
 }
 
 /* Tablet - 768px */
 @media only screen and (min-width: 48rem) {
 
-  #cs-footer {
-    .cs-container {
-      max-width: 80rem; /* 1280/16 */
-      row-gap: 0;
-    }
-    .cs-contact {
-      flex-direction: row;
-      justify-content: space-between;
-      border-top: none;
-    }
-    .cs-contact-li {
-      margin: 0;
-    }
+  #cs-footer .cs-container {
+    max-width: 80rem;
+    row-gap: 0;
+  }
+
+  #cs-footer .cs-contact {
+    flex-direction: row;
+    justify-content: space-between;
+    border-top: none;
+  }
+
+  #cs-footer .cs-contact-li {
+    margin: 0;
   }
 }
 
 /* Small Desktop - 1024px */
 @media only screen and (min-width: 64rem) {
 
-  #cs-footer {
-    .cs-container {
-      align-items: flex-start;
-      justify-content: flex-end;
-    }
-    .cs-logo-group {
-      margin-right: auto;
-      width: auto;
-      max-width: 19.0625rem; /* 305/16 */
-    }
-    .cs-text {
-      width: 100%;
-    }
-    .cs-social {
-      flex-direction: row;
-      position: relative;
-      top: auto;
-      right: auto;
-    }
-    .cs-contact {
-      width: auto;
-    }
-  } 
+  #cs-footer .cs-container {
+    align-items: flex-start;
+    justify-content: flex-end;
+  }
+
+  #cs-footer .cs-logo-group {
+    margin-right: auto;
+    width: auto;
+    max-width: 19.0625rem;
+  }
+
+  #cs-footer .cs-text {
+    width: 100%;
+  }
+
+  #cs-footer .cs-social {
+    flex-direction: row;
+    position: relative;
+    top: auto;
+    right: auto;
+  }
+
+  #cs-footer .cs-contact {
+    width: auto;
+  }
 }

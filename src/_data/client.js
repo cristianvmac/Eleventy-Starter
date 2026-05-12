@@ -1,14 +1,14 @@
 module.exports = {
-    name: "Code Stitch Web Designs",
-    email: "help@codestitch.app",
-    phoneForTel: "555-779-4407",
-    phoneFormatted: "(555) 779-4407",
+    name: "Eleventy Starter",
+    email: "help@eleventystarter.app",
+    phoneForTel: "555-557-6614",
+    phoneFormatted: "(555) 557-6614",
     address: {
         lineOne: "First Address Line",
         lineTwo: "Second Address Line",
-        city: "Denver",
-        state: "CO",
-        zip: "80206",
+        city: "Springfield",
+        state: "OH",
+        zip: "12345",
         country: "US",
         mapLink: "https://maps.app.goo.gl/TEdS5KoLC9ZcULuQ6",
     },
@@ -21,3 +21,4 @@ module.exports = {
     // Passing the isProduction variable for use in HTML templates
     isProduction: process.env.ELEVENTY_ENV === "PROD",
 };
+
