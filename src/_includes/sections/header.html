@@ -36,10 +36,19 @@
 						</button>
 						<ul class="cs-drop-ul" aria-labelledby="projects-dropdown-toggle">
 							<li class="cs-drop-li">
-								<a href="/services/service-1/" class="cs-li-link cs-drop-link" aria-current={Astro.url.pathname === "/services/service-1/" ? "page" : undefined}>Service 1</a>
+    							<a href="/services/service-1/"
+       								class="cs-li-link cs-drop-link {% if page.url == "/services/service-1/" %} cs-active {% endif %}"
+       								{% if page.url == "/services/service-1/" %} aria-current="page" {% endif %}>
+       								Service 1
+    							</a>
 							</li>
+
 							<li class="cs-drop-li">
-								<a href="/services/service-2/" class="cs-li-link cs-drop-link" aria-current={Astro.url.pathname === "/services/service-2/" ? "page" : undefined}>Service 2</a>
+    							<a href="/services/service-2/"
+       								class="cs-li-link cs-drop-link {% if page.url == "/services/service-2/" %} cs-active {% endif %}"
+       								{% if page.url == "/services/service-2/" %} aria-current="page" {% endif %}>
+       								Service 2
+    							</a>
 							</li>
 						</ul>
 					</li>

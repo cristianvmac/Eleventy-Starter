@@ -1,0 +1,80 @@
+---
+title: "Service Two | Example Construct Ltd."
+description: "Service two - Example Construct Ltd"
+permalink: "/services/service-2/"
+lang: en
+---
+
+{% extends "layouts/base.html" %}
+
+{% block head %}
+    <link rel="stylesheet" href="/assets/css/services/service-2.css">
+    <link rel="preload" as="image" href="/assets/images/banner.jpg" type="image/jpg"/>
+{% endblock %}
+
+{% block body %}
+
+  <!-- ============================================ -->
+<!--                   Banner                     -->
+<!-- ============================================ -->
+
+<div id="banner">
+    <div class="cs-container">
+        <span class="cs-int-title">Service Two</span>
+    </div>
+    <!--Background Image-->
+    <picture class="cs-background">
+        <source media="(max-width: 600px)" srcset="/assets/images/banner.jpg">
+        <source media="(min-width: 601px)" srcset="/assets/images/banner.jpg">
+        <img aria-hidden="true" loading="lazy" decoding="async" 
+            src="/assets/images/banner.jpg" alt="image banner" width="1920" height="375">
+    </picture>
+</div>
+<!-- ============================================ -->
+<!--              Side By Side Reverse            -->
+<!-- ============================================ -->
+
+
+<section id="services">
+    <div class="cs-container">
+        <div class="cs-content">
+            <span class="cs-topper">Our Expertise</span>
+            <h2 class="cs-title">Et harum quidem rerum facilis</h2>
+            <p class="cs-text">
+                Lorem fames nibh, quam justo nulla elementum ante ligula integer, cum magna ac minus odio. Ipsum sed semper sem libero lectus urna, cras arcu conubia molestie non. Sollicitudin fermentum tincidunt scelerisque vestibulum. Congue lectus mi.
+            </p>
+            <a href="/portfolio/" class="cs-button-solid">Explore Our Work</a>
+        </div>
+        <ul class="cs-card-group">
+            <li class="cs-item">
+                <h3 class="cs-h3">Proin iaculis ipsum </h3>
+                <picture class="cs-picture">
+                    <source media="(max-width: 600px)" srcset="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80">
+                    <source media="(min-width: 601px)" srcset="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&q=80">
+                    <img aria-hidden="true" loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" alt="New home construction framing" width="275" height="132">
+                </picture>
+            </li>
+            <li class="cs-item">
+                <h3 class="cs-h3"> Lorem fames nibh</h3>
+                <picture class="cs-picture">
+                    <source media="(max-width: 600px)" srcset="https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?w=600&q=80">
+                    <source media="(min-width: 601px)" srcset="https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?w=900&q=80">
+                    <img aria-hidden="true" loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?w=600&q=80" alt="Home renovation in progress" width="275" height="132">
+                </picture>
+            </li>
+            <li class="cs-item">
+                <h3 class="cs-h3">Congue lectus mi.</h3>
+                <picture class="cs-picture">
+                    <source media="(max-width: 600px)" srcset="https://images.unsplash.com/photo-1503174971373-b1f69850bded?w=600&q=80">
+                    <source media="(min-width: 601px)" srcset="https://images.unsplash.com/photo-1503174971373-b1f69850bded?w=900&q=80">
+                    <img aria-hidden="true" loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1503174971373-b1f69850bded?w=600&q=80" alt="Modern home addition and extension" width="275" height="132">
+                </picture>
+            </li>
+        </ul>
+    </div>
+</section>
+	
+
+    {% include 'sections/cta.html' %}
+
+{% endblock %}
