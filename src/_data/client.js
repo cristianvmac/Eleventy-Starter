@@ -1,5 +1,5 @@
 module.exports = {
-    name: "Eleventy Starter",
+    name: "Eleventy Starter Template",
     email: "help@eleventystarter.app",
     phoneForTel: "555-557-6614",
     phoneFormatted: "(555) 557-6614",

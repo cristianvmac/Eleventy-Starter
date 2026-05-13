@@ -298,148 +298,113 @@ body {
     }
 }
 
-/*-- -------------------------- -->
-<---      Dark Mode Toggle      -->
-<--- -------------------------- -*/
 
-/* Mobile - 360px */
+/* Add this as it's own dark.css file and linked on all pages */
+/*-- -------------------------- -->
+<---      Core Dark Styles      -->
+<--- -------------------------- -*/
+/* Mobile */
 @media only screen and (min-width: 0rem) {
-    body.dark-mode #dark-mode-toggle .cs-sun {
-        transform: translate(-50%, -50%);
-        opacity: 1;
-    }
-
-    body.dark-mode #dark-mode-toggle .cs-moon {
-        transform: translate(-50%, -150%);
-        opacity: 0;
-    }
-
-    #dark-mode-toggle {
-        display: block;
-        position: absolute;
-        bottom: 1rem;
-        right: 5.625rem; /* 90/16rem */
-        width: 3rem;
-        height: 3rem;
-        background: transparent;
-        border: none;
-        overflow: hidden;
-        padding: 0;
-        z-index: 1000;
-    }
-
-    #dark-mode-toggle img,
-    #dark-mode-toggle svg {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 1.25rem;
-        height: 1.25rem;
-        pointer-events: none;
-    }
-
-    #dark-mode-toggle .cs-moon {
-        z-index: 2;
-        transition: transform .3s, opacity .3s;
-        fill: #1a1a1a;
-    }
-
-    #dark-mode-toggle .cs-sun {
-        z-index: 1;
-        transform: translate(-50%, 100%);
-        opacity: 0;
-        transition: transform .3s, opacity .3s;
-    }
+  :root {
+    --dark: #082032;
+    --medium: #2c394b;
+    --accent: #334756;
+    --bodyTextColorWhite: #fafbfc;
+  }
+  body.dark-mode {
+    background-color: var(--dark);
+  }
+  body.dark-mode p,
+  body.dark-mode li,
+  body.dark-mode h1,
+  body.dark-mode h2,
+  body.dark-mode h3,
+  body.dark-mode h4,
+  body.dark-mode h5,
+  body.dark-mode h6,
+  body.dark-mode .cs-title,
+  body.dark-mode .cs-text,
+  body.dark-mode .cs-li {
+    color: var(--bodyTextColorWhite);
+  }
+  body.dark-mode .light {
+    display: none;
+  }
+  body.dark-mode .dark {
+    display: block !important;
+  }
+  .dark {
+    /* class used to hide elements that only need to be seen when dark mode is enabled */
+    display: none;
+  }
 }
-
-/* Tablet - 768px */
-@media only screen and (min-width: 48rem) {
-    #dark-mode-toggle {
-        margin-left: 1rem;
-        position: relative;
-        bottom: auto;
-        right: auto;
-    }
-}
-
-/* Desktop - 1024px */
-@media only screen and (min-width: 64rem) {
-    #dark-mode-toggle {
-        position: relative;
-        transform: none;
-        bottom: auto;
-        right: auto;
-        margin: 0;
-    }
-
-    #dark-mode-toggle:hover {
-        cursor: pointer;
-    }
-}
-
 /*-- -------------------------- -->
 <---      Dark Mode Toggle      -->
 <--- -------------------------- -*/
-/* Mobile - 360px */
+/* Mobile */
 @media only screen and (min-width: 0rem) {
   body.dark-mode #dark-mode-toggle .cs-sun {
-    opacity: 1;
     transform: translate(-50%, -50%);
+    opacity: 1;
   }
   body.dark-mode #dark-mode-toggle .cs-moon {
-    opacity: 0;
     transform: translate(-50%, -150%);
-    fill: #fff;
+    opacity: 0;
   }
   #dark-mode-toggle {
-    width: 3rem;
-    height: 3rem;
-    padding: 0;
-    background: transparent;
-    border: none;
     display: block;
     position: absolute;
-    top: 0.625rem;
-    right: 4.375rem;
-    z-index: 1000;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 3.75rem;
+    width: 3rem;
+    height: 3rem;
+    background: transparent;
+    border: none;
     overflow: hidden;
+    padding: 0;
   }
   #dark-mode-toggle img,
   #dark-mode-toggle svg {
-    width: 1.25rem;
-    height: 1.25rem;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    width: 1.5625rem;
+    height: 1.5625rem;
     pointer-events: none;
   }
   #dark-mode-toggle .cs-moon {
     z-index: 2;
-    transition: transform 0.3s, opacity 0.3s;
+    transition: transform 0.3s,
+                opacity 0.3s,
+                fill 0.3s;
+    fill: #000;
   }
   #dark-mode-toggle .cs-sun {
-    opacity: 0;
     z-index: 1;
     transform: translate(-50%, 100%);
-    transition: transform 0.3s, opacity 0.3s;
+    opacity: 0;
+    transition: transform 0.3s,
+                opacity 0.3s;
   }
 }
-/* Desktop - 1024px */
+/* Desktop */
 @media only screen and (min-width: 64rem) {
   #dark-mode-toggle {
-    margin: 0;
     position: relative;
     top: auto;
     right: auto;
     transform: none;
+    margin-left: 1.875rem;
+    margin-bottom: 0rem;
   }
-  #dark-mode-toggle:hover {
-    cursor: pointer;
+  #dark-mode-toggle .moon {
+    /* change to whatever you need */
+    /* fill: #fff; */
   }
 }
-
+                                
 
 
 /* ==========================================================================
@@ -461,7 +426,7 @@ body {
     position: fixed;
     z-index: 10000;
     height: 3.75rem; /* or whatever your desired mobile nav height is */
-    /*height: auto;*/
+
   }
 
   #cs-navigation::before {
@@ -520,7 +485,6 @@ body {
     /* replace height: 100% with a max-height so it doesn't grow */
     height: auto;
     max-height: 2.5rem; /* adjust to your logo's natural size */
-    
   }
 
   #cs-navigation .cs-logo svg {
@@ -711,7 +675,7 @@ body {
 
 @media only screen and (max-width: 63.9375rem) {
   #cs-navigation .cs-dropdown {
-    color: var(--bodyTextColor);
+    color: var(--bodyTextColorWhite);
     color: var(--headerColor);
     position: relative;
   }
@@ -742,8 +706,7 @@ body {
     width: 0.9375rem;
     height: auto;
     display: inline-block;
-   /* color: inherit;*/
-    color: var(--headerColor);
+    color: inherit;
     transform: rotate(180deg);
     transition: 0.3s;
   }
@@ -757,8 +720,7 @@ body {
     background-color: var(--primary);
     opacity: 0;
     display: flex;
-    /*visibility: hidden;*/
-    visibility: visible;
+    visibility: hidden;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-end;
@@ -767,7 +729,6 @@ body {
     transform: scale(0);
     transition: padding 0.3s, margin 0.3s, height 0.3s, opacity 0.3s, transform 0.3s, visibility 0.3s;
     transform-origin: top right;
-    
   }
 
   #cs-navigation .cs-drop-li {
@@ -842,7 +803,6 @@ body {
     transform: scaleY(0);
     transition: transform 0.3s, visibility 0.3s, opacity 0.3s;
     transform-origin: top;
-    color: var(--bodyTextColor);
   }
 
   #cs-navigation .cs-drop-li {
@@ -962,7 +922,7 @@ body {
     z-index: 100;
   }
 
-  #cs-navigation .cs-logo img {
+  #cs-navigation .cs-logo svg {
     width: 100%;
     height: 100%;
     object-fit: contain;
@@ -1034,7 +994,6 @@ body {
     background-color: var(--primaryLight);
   }
 }*/
-
 
                                 
 /*-- -------------------------- -->
