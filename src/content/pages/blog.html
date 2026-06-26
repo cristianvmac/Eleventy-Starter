@@ -9,7 +9,7 @@ lang: en
 
 {% block head %}
     <link rel="stylesheet" href="/assets/css/blog.css">
-    <link rel="preload" as="image" href="/assets/images/banner.jpg" type="image/jpg"/>
+    <link rel="preload" as="image" href="/assets/images/banner.webp" type="image/webp"/>
 {% endblock %}
 
 {% block body %}
@@ -17,7 +17,7 @@ lang: en
     <!--                   Banner                     -->
     <!-- ============================================ -->
 
-    <div id="banner-310">
+    <div id="banner">
         <div class="cs-container">
             <span class="cs-int-title">Blog</span>
             <div class="cs-breadcrumbs">
@@ -27,9 +27,10 @@ lang: en
         </div>
         <!--Background Image-->
         <picture class="cs-background">
-            <source media="(max-width: 600px)" srcset="./assets/images/landing-construction.jpg">
-            <source media="(min-width: 601px)" srcset="./assets/images/landing-construction.jpg">
-            <img decoding="async" src="./assets/images/landing-construction.jpg" alt="construction" width="2250" height="1500" aria-hidden="true">
+            <source media="(max-width: 600px)" srcset="/assets/images/banner.webp">
+            <source media="(min-width: 601px)" srcset="/assets/images/banner.webp">
+            <img aria-hidden="true" loading="lazy" decoding="async"
+                src="/assets/images/banner.webp" alt="image banner" width="1920" height="375">
         </picture>
     </div>
 
@@ -47,9 +48,9 @@ lang: en
                 {%- for post in collections.post | reverse -%}
                     <article class="cs-article">
                         <picture class="cs-article-image">
-                            <source media="(max-width: 600px)" srcset="./assets/images/landing-construction.jpg">
-                            <source media="(min-width: 601px)" srcset="./assets/images/landing-construction.jpg">
-                            <img decoding="async" src="./assets/images/landing-construction.jpg" alt="construction" width="2250" height="1500" aria-hidden="true">
+                            <source media="(max-width: 600px)" srcset="{{ post.data.image }}">
+                            <source media="(min-width: 601px)" srcset="{{ post.data.image }}">
+                            <img decoding="async" src="{{ post.data.image }}" alt="{{ post.data.imageAlt }}" width="2250" height="1500">
                         </picture>
                         <div class="cs-article-group">
                             <div class="cs-author-group">
@@ -76,3 +77,5 @@ lang: en
         {% include 'components/featured-posts.html' %}
     </div>
 {% endblock %}
+
+
