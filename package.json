@@ -1,7 +1,7 @@
 {
-  "name": "intermediate-website-kit-less",
+  "name": "eleventy-starter",
   "version": "2.0.1",
-  "description": "The official CodeStitch Intermediate kit, featuring 11ty, Decap CMS and LESS - all set up for you! Perfect for websites of all sizes.",
+  "description": "The official Eleventy Starter kit, featuring 11ty, Decap CMS and LESS - all set up for you! Perfect for websites of all sizes.",
   "main": "index.js",
   "scripts": {
     "watch:cms": "npx decap-server",
@@ -17,24 +17,21 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/CodeStitchOfficial/Intermediate-Website-Kit-LESS.git"
+    "url": "git+https://github.com/cristianvmac/Eleventy-Starter.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/CodeStitchOfficial/Intermediate-Website-Kit-LESS/issues"
+    "url": "https://github.com/cristianvmac/Eleventy-Starter/issues"
   },
-  "homepage": "https://github.com/CodeStitchOfficial/Intermediate-Website-Kit-LESS#readme",
+  "homepage": "https://github.com/cristianvmac/Eleventy-Starter#readme",
   "dependencies": {
     "@11ty/eleventy": "^3.1.5",
     "@11ty/eleventy-img": "^6.0.4",
     "@11ty/eleventy-navigation": "^1.0.5",
-    "@codestitchofficial/eleventy-plugin-minify": "^1.1.3",
-    "@codestitchofficial/eleventy-plugin-sharp-images": "^2.2.0",
     "@quasibit/eleventy-plugin-sitemap": "^2.2.0",
     "autoprefixer": "^10.4.27",
-    "codestitch-sharp-image-automation": "^0.4.0",
     "cross-env": "^10.1.0",
     "cssnano": "^7.1.3",
     "decap-server": "^3.5.2",

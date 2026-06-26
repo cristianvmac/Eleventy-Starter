@@ -116,7 +116,7 @@ function moveDemoImages() {
 
 	// Note: cabinets.jpg is kept because blog templates (post.html, blog.html) use it as a banner image.
 	// It will be moved when remove-decap is run with blog removal.
-	const images = ["landing.jpg", "construction.jpg"];
+	const images = ["blog.jpg", "blog2.jpg"];
 	let count = 0;
 
 	for (const img of images) {
