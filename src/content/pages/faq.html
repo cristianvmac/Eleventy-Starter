@@ -9,7 +9,7 @@ lang: en
  
 {% block head %}
     <link rel="stylesheet" href="/assets/css/faq.css">
-    <link rel="preload" as="image" href="/assets/images/banner.jpg" type="image/jpg"/>
+    <link rel="preload" as="image" href="/assets/images/banner.webp" type="image/webp"/>
 {% endblock %}
 
 {% block body %}
@@ -25,10 +25,10 @@ lang: en
     </div>
     <!--Background Image-->
     <picture class="cs-background">
-        <source media="(max-width: 600px)" srcset="/assets/images/banner.jpg">
-        <source media="(min-width: 601px)" srcset="/assets/images/banner.jpg">
+        <source media="(max-width: 600px)" srcset="/assets/images/banner.webp">
+        <source media="(min-width: 601px)" srcset="/assets/images/banner.webp">
         <img aria-hidden="true" loading="lazy" decoding="async" 
-            src="/assets/images/banner.jpg" alt="image banner" width="1920" height="375">
+            src="/assets/images/banner.webp" alt="image banner" width="1920" height="375">
     </picture>
 </div>                               
 

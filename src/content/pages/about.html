@@ -8,8 +8,8 @@ lang: en
 {% extends "layouts/base.html" %}
 
 {% block head %}
-    <link rel="preload" as="image" href="/assets/images/banner.jpg" type="image/jpg"/>
-    <link rel="preload" as="image" href="/assets/images/aboutus.jpg" type="image/jpg"/>
+    <link rel="preload" as="image" href="/assets/images/banner.webp" type="image/webp"/>
+    <link rel="preload" as="image" href="/assets/images/services/sbs.webp" type="image/webp"/>
     <link rel="stylesheet" href="/assets/css/about.css">
 {% endblock %}
 
@@ -25,10 +25,10 @@ lang: en
     </div>
     <!--Background Image-->
     <picture class="cs-background">
-        <source media="(max-width: 600px)" srcset="/assets/images/banner.jpg">
-        <source media="(min-width: 601px)" srcset="/assets/images/banner.jpg">
+        <source media="(max-width: 600px)" srcset="/assets/images/banner.webp">
+        <source media="(min-width: 601px)" srcset="/assets/images/banner.webp">
         <img aria-hidden="true" loading="lazy" decoding="async" 
-            src="/assets/images/banner.jpg" alt="image banner" width="1920" height="375">
+            src="/assets/images/banner.webp" alt="image banner" width="1920" height="375">
     </picture>
 </div>
    <!-- ============================================ -->
@@ -40,9 +40,9 @@ lang: en
 		<!-- Left Image Section -->
 		<div class="cs-left">
 			<picture class="cs-picture cs-picture1">
-          		<source media="(max-width: 600px)" srcset="/assets/images/services/sbs.jpg">
-          		<source media="(min-width: 601px)" srcset="/assets/images/services/sbs.jpg">
-          		<img aria-hidden="true" loading="lazy" decoding="async" src="/assets/images/services/sbs.jpg" alt="commercial fit-out" width="275" height="132">
+          		<source media="(max-width: 600px)" srcset="/assets/images/services/sbs.webp">
+          		<source media="(min-width: 601px)" srcset="/assets/images/services/sbs.webp">
+          		<img aria-hidden="true" loading="lazy" decoding="async" src="/assets/images/services/sbs.webp" alt="commercial fit-out" width="275" height="132">
       		</picture>
 		</div>
 		<!-- Right Content Section-->

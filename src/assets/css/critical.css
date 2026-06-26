@@ -15,7 +15,7 @@
     font-family: "Roboto", "Arial", sans-serif;
     text-align: center;
     padding: 0 1rem;
-    /*padding-bottom: 6.25rem;*/
+    padding-bottom: 1.25rem;
     position: relative;
     z-index: 1;
     overflow: hidden;
@@ -59,6 +59,7 @@
     max-width: 80rem;
     margin: auto;
     position: relative;
+    padding: clamp(6em, 22vw, 9em) 0 clamp(11em, 30vw, 14em) 0; /* add this */
   }
 
   #hero .cs-container::before {
@@ -105,14 +106,14 @@
     margin-bottom: clamp(2.5rem, 4vw, 3rem);
     color: var(--bodyTextColorWhite);
   }
-
-  /*#hero .cs-button-solid {
+/*
+  #hero .cs-button-solid {
     line-height: clamp(2.875em, 5.5vw, 3.5em);
     height: initial;
     margin-bottom: 1rem;
-  }*/
-
-      #hero .cs-button-solid {
+  }
+*/
+  #hero .cs-button-solid {
         font-size: 1rem;
         /* 46px - 56px */
         line-height: clamp(2.875rem, 5.5vw, 3.5rem);
@@ -192,11 +193,11 @@
 /* Tablet - 768px */
 @media only screen and (min-width: 48em) {
   #hero {
-    padding: 0 clamp(2em, 5vw, 2.5em);
+    padding: 0 clamp(1.5em, 4vw, 1.5em);
   }
 
   #hero .cs-container {
-    padding: clamp(7em, 27.95vw, 17.5em) 0 clamp(9em, 30.95vw, 23.5em) 0;
+    padding: clamp(7em, 27.95vw, 17.5em) 0 clamp(4em, 17.0vw, 12.0em) 0;
   }
 
   #hero .cs-container::after {
@@ -221,9 +222,15 @@
 
 /* Desktop - 1300px */
 @media only screen and (min-width: 81.25em) {
-  #hero {
-    /* no extra styles */
+  
+  #hero .cs-container {
+    padding-bottom: 14em;   /* down from 23.5em */
   }
+
+  #hero .cs-flex-group {
+    margin-bottom: 6em;     /* down from 13.75em */
+  }
+  
 }
 
 /* Dark Mode */
