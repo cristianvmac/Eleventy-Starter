@@ -49,7 +49,7 @@
 
     #sbs .cs-picture1 {
         width: 39.625em;
-        height: 36.3125em;
+        height: 35.3125em;
         top: 0;
         left: 0;
       /*  margin-left: 1rem;*/
@@ -66,8 +66,10 @@
     }
 
     #sbs .cs-right {
-        max-width: 33.875rem;
+        max-width: 39.4375rem;
+        height: 39.75em;
         margin: auto;
+        padding-top: 1rem;
     }
 
     #sbs .cs-topper {
@@ -198,6 +200,7 @@
 @media only screen and (min-width: 0em) {
     #sbs-r {
         padding: var(--sectionPadding);
+        background-color: #f7f7f7;
     }
 
     #sbs-r .cs-container {
@@ -211,7 +214,7 @@
         row-gap: 2.5rem;
     }
 
-    #sbs-r .cs-left {
+    #sbs-r .cs-right {
         font-size: min(2.31vw, 0.7em);
         width: 39.4375em;
         height: 39.75em;
@@ -223,6 +226,7 @@
         display: block;
         position: absolute;
         overflow: hidden;
+        margin-top: 1rem;
     }
 
     #sbs-r .cs-picture img {
@@ -251,7 +255,7 @@
         left: 0;
     }
 
-    #sbs-r .cs-right {
+    #sbs-r .cs-left {
         max-width: 33.875rem;
         margin: auto;
     }
@@ -264,6 +268,7 @@
     #sbs-r .cs-title {
         text-align: left;
         max-width: 50rem;
+        padding-bottom: 1rem;
     }
 
     #sbs-r .cs-text {
@@ -324,7 +329,7 @@
         gap: 3.25rem;
     }
 
-    #sbs-r .cs-left {
+    #sbs-r .cs-right {
         font-size: min(1.2vw, 1em);
         order: 2;
         flex: none;
@@ -372,7 +377,6 @@
         opacity: 0.2;
     }
 }
-
 
 /*-- -------------------------- -->
 <---          Gallery           -->

@@ -404,9 +404,7 @@ body {
     /* change to whatever you need */
     /* fill: #fff; */
   }
-}
-                                
-
+}                           
 
 /* ==========================================================================
    Mobile Navigation — max-width: 1023px (63.9375rem)
@@ -1252,7 +1250,7 @@ body {
 
   #cs-footer {
     background-color: #1a1a1a;
-    padding: 2rem 2rem;
+    padding: clamp(3.75rem, 7.82vw, 6.25rem) 1rem;
   }
 
   #cs-footer .cs-container {
