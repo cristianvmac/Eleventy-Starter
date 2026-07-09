@@ -1,8 +1,11 @@
 ---
-title: "Eleventy Starter Template"
-description: "Meta description for the page"
 permalink: "/"
 tags: "sitemap" # content/content.json will make sure that all pages in content/ are marked with a "sitemap" tag, for automatic sitemap generation. As index.html is not in content/, we need to add it here to ensure the root page is included in the sitemap generation
+# title/description come from src/_data/copy.js so tenant builds can override them.
+# `safe` prevents double-escaping — base.html escapes these once more when rendering.
+eleventyComputed:
+  title: "{{ copy.meta.title | safe }}"
+  description: "{{ copy.meta.description | safe }}"
 ---
 
 {% extends "layouts/base.html" %}
@@ -36,9 +39,9 @@ tags: "sitemap" # content/content.json will make sure that all pages in content/
 <section id="hero">
     <div class="cs-container">
 		<div class="cs-flex-group">
-			<span class="cs-topper">Websitero presents</span>
-			<h1 class="cs-title">Eleventy Starter <br /> Template</h1>
-			<p class="cs-text">This starter kit gives you a ready-made website setup built with Eleventy, so you can reuse sections, manage your content in one place, and grow your site easily. It also includes a built-in blog with Decap CMS.</p>
+			<span class="cs-topper">{{ copy.hero.topper }}</span>
+			<h1 class="cs-title">{{ copy.hero.title | safe }}</h1>
+			<p class="cs-text">{{ copy.hero.text }}</p>
 			<a href="/about/" class="cs-button-solid">Explore More</a>
 			<a href="/contact/" class="cs-button-transparent">
           <img class="cs-img" decoding="async" src="https://csimg.nyc3.digitaloceanspaces.com/Hero/play.svg" alt="play icon" width="17" height="17" aria-hidden="true">
@@ -60,33 +63,17 @@ tags: "sitemap" # content/content.json will make sure that all pages in content/
     <!-- ============================================ -->
 
 <section id="services" class="services">
+  {% for service in copy.services %}
   <div class="card">
     <picture>
-        <img loading="lazy" decoding="async" src="/assets/svgs/service1.svg" alt="icon" width="48" height="48" aria-hidden="true">
+        <img loading="lazy" decoding="async" src="/assets/svgs/service{{ loop.index0 % 3 + 1 }}.svg" alt="icon" width="48" height="48" aria-hidden="true">
     </picture>
-    <h2>Service 1</h2>
+    <h2>{{ service.title }}</h2>
     <p>
-      Write a short description of the service using common search terms. Aim for 1–2 sentences.
+      {{ service.text }}
     </p>
   </div>
-  <div class="card">
-    <picture>
-        <img loading="lazy" decoding="async" src="/assets/svgs/service2.svg" alt="icon" width="48" height="48" aria-hidden="true">
-    </picture>
-    <h2>Service 2</h2>
-    <p>
-      Write a short description of the service using common search terms. Aim for 1–2 sentences.
-    </p>
-  </div>
-  <div class="card">
-    <picture>
-      <img loading="lazy" decoding="async" src="/assets/svgs/service3.svg" alt="icon" width="48" height="48" aria-hidden="true">
-    </picture>
-    <h2>Service 3</h2>
-    <p>
-      Write a short description of the service using common search terms. Aim for 1–2 sentences.
-    </p>
-  </div>
+  {% endfor %}
 </section>
 
                                 
@@ -107,18 +94,17 @@ tags: "sitemap" # content/content.json will make sure that all pages in content/
 		</div>
 		<!-- Right Content Section-->
 		<div class="cs-right">
-			<span class="cs-topper">About Us</span>
-			<h2 class="cs-title">About Company Title</h2>
+			<span class="cs-topper">{{ copy.about.topper }}</span>
+			<h2 class="cs-title">{{ copy.about.title }}</h2>
+			{% for paragraph in copy.about.paragraphs %}
 			<p class="cs-text">
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+				{{ paragraph }}
 			</p>
-			<p class="cs-text">
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.			
-			</p>
+			{% endfor %}
 			<div class="cs-flex-group">
-				<p class="cs-flex-p">Successus clientium nostrorum successus noster est. Dediti sumus eventibus qui per se loquuntur.</p>
-				<span class="cs-name">John Doe</span>
-				<span class="cs-job">CEO & Founder</span>
+				<p class="cs-flex-p">{{ copy.about.quote }}</p>
+				<span class="cs-name">{{ copy.about.name }}</span>
+				<span class="cs-job">{{ copy.about.job }}</span>
 			</div>
 			<a href="/about/" class="cs-button-solid">More About Us</a>
 		</div>
@@ -141,28 +127,13 @@ tags: "sitemap" # content/content.json will make sure that all pages in content/
     </div>
     <!-- Right Content Section-->
     <div class="cs-left">
-      <span class="cs-topper">SEO Ranking</span>
-      <h2 class="cs-title">Highlight a primary service keyword</h2>
+      <span class="cs-topper">{{ copy.seo.topper }}</span>
+      <h2 class="cs-title">{{ copy.seo.title }}</h2>
+      {% for paragraph in copy.seo.paragraphs %}
       <p class="cs-text">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-        Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. 
-        Curabitur blandit tempus porttitor. Donec id elit non mi porta gravida at eget metus.
+        {{ paragraph }}
       </p>
-      <p class="cs-text">
-        Vestibulum id ligula porta felis euismod semper. Non tenetur,
-        iure nihil ipsam qui atque commodi id voluptatem nesciunt, quis animi
-        fuga cum doloribus! Eaque laboriosam, unde consectetur iure asperiores
-        ullam. Consequuntur debitis a voluptatibus vitae optio autem explicabo
-        quia neque est quas, in placeat. Lorem ipsum dolor sit amet
-        consectetur adipisicing elit. Doloribus modi laudantium voluptatibus
-        rem libero error minus quia eligendi sapiente eos.
-      </p>
-      <p class="cs-text">
-        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, 
-        totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. 
-        Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. 
-        Neque  numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. 
-      </p>
+      {% endfor %}
     </div>
   </div>
 </section>
@@ -173,9 +144,9 @@ tags: "sitemap" # content/content.json will make sure that all pages in content/
 
 <section id="gallery">
   <div class="cs-container">
-    <span class="cs-topper">Our Portfolio</span>
+    <span class="cs-topper">{{ copy.gallery.topper }}</span>
     <h2 class="cs-title">
-      Expert Backup Generator Installation Services
+      {{ copy.gallery.title }}
     </h2>
     <div class="cs-image-group">
       <!-- Row 1-->
@@ -246,38 +217,25 @@ tags: "sitemap" # content/content.json will make sure that all pages in content/
 
 <section id="reviews">
 	<div class="cs-container">
-		<span class="cs-topper">Our Reviews</span>
-		<h2 class="cs-title">Words From Our Customers</h2>
+		<span class="cs-topper">{{ copy.reviews.topper }}</span>
+		<h2 class="cs-title">{{ copy.reviews.title }}</h2>
 		<p class="cs-text">
-			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sit dolor volutpat porttitor sagittis nunc nisl. Sagittis sit pellentesque gravida viverra. Leo ut sed euismod tortor risus et. Ornare non neque, leo, ornare. Lorem ipsum dolor sit amet.
+			{{ copy.reviews.text }}
 		</p>
 		<ul class="cs-card-group">
-			<!-- Review 1 -->
+			{% for review in copy.reviews.items %}
 			<li class="cs-item">
-				<img class="cs-item-img" loading="lazy" decoding="async" src="/assets/images/testimonials/profile5.jpg" alt="icon" width="80" height="80" aria-hidden="true">
-        <p class="cs-item-p">
-					Dictum dolor, nullam morbi sem in auctor proin. Consequat dolor habitasse nam sed tempor. Viverra magna pharetra rhoncus, nec sed ullamcorper lectus et. Auctor velit diam fermentum consequat. Feugiat viverra massa urna, volutpat orci
-					imperdiet eget eget.
-				</p>
-				<span class="cs-reviewer">
-					John Doe
-					<span class="cs-desc">Homeowner</span>
-				</span>
-				<Icon name="stars-yellow" class="cs-item-stars" />
-			</li>
-			<!-- Review 2 -->
-			<li class="cs-item">
-				<img class="cs-item-img" loading="lazy" decoding="async" src="/assets/images/testimonials/profile-4.jpg" alt="icon" width="80" height="80" aria-hidden="true">
+				<img class="cs-item-img" loading="lazy" decoding="async" src="{{ review.img or '/assets/images/testimonials/profile5.jpg' }}" alt="icon" width="80" height="80" aria-hidden="true">
 				<p class="cs-item-p">
-					Dictum dolor, nullam morbi sem in auctor proin. Consequat dolor habitasse nam sed tempor. Viverra magna pharetra rhoncus, nec sed ullamcorper lectus et. Auctor velit diam fermentum consequat. Feugiat viverra massa urna, volutpat orci
-					imperdiet eget eget.
+					{{ review.text }}
 				</p>
 				<span class="cs-reviewer">
-					Jane Doe
-					<span class="cs-desc">Homeowner</span>
+					{{ review.name }}
+					<span class="cs-desc">{{ review.desc }}</span>
 				</span>
 				<Icon name="stars-yellow" class="cs-item-stars" />
 			</li>
+			{% endfor %}
 		</ul>
 		<a aria-label="read more reviews" href="/reviews/" class="cs-button-solid">Our Reviews</a>
 	</div>
@@ -290,74 +248,21 @@ tags: "sitemap" # content/content.json will make sure that all pages in content/
 <section id="faq">
   <div class="cs-container">
     <div class="cs-content">
-      <span class="cs-topper">Company Name Ltd.</span>
-      <h2 class="cs-title">Frequently Asked Questions</h2>
-      <p class="cs-text">Have some questions? Check out our FAQ, where we answer our most common questions.</p>
+      <span class="cs-topper">{{ copy.faq.topper }}</span>
+      <h2 class="cs-title">{{ copy.faq.title }}</h2>
+      <p class="cs-text">{{ copy.faq.text }}</p>
     </div>
 
     <div class="cs-flex-group">
       <ul class="cs-faq-group">
-        <li class="cs-faq-item active">
-          <button class="cs-button">A euismod, tincidunt molestie suscipit?</button>
+        {% for item in copy.faq.items %}
+        <li class="cs-faq-item{{ ' active' if loop.first }}">
+          <button class="cs-button">{{ item.question }}</button>
           <p class="cs-item-p">
-            Dictumst lorem ullamcorper rutrum, dolor nam luctus, a viverra nulla ultricies suscipit interdum posuere.
-            Gravida rhoncus libero ultricies, bibendum ut ante rutrum neque.
-            Luctus felis vel velit, justo molestie quis, a cras integer porta orci arcu. 
+            {{ item.answer }}
           </p>
         </li>
-        <li class="cs-faq-item">
-          <button class="cs-button">Velit platea, ipsum curabitur leo?</button>
-          <p class="cs-item-p">
-            Dui sem condimentum, placerat velit, orci cubilia venenatis duis semper. 
-            Vehicula rutrum, amet curae varius.
-            Fermentum laoreet conubia, platea elit inceptos senectus posuere. 
-          </p>
-        </li>
-        <li class="cs-faq-item">
-          <button class="cs-button">Porta praesent id pharetra lacinia egestas dictumst? </button>
-          <p class="cs-item-p">
-            Nunc orci gravidus, nec tortor sed pharetra.
-            Nibh ac nulla non, mauris fusce facilisis, at etiam eget posuere dolor vitae. 
-            Etiam curae, curabitur inceptos nisl.
-          </p>
-        </li>
-        <li class="cs-faq-item">
-          <button class="cs-button">Erat elementum rutrum convallis, habitant massa ut fermentum imperdiet?</button>
-          <p class="cs-item-p">
-            Elit morbi curae litora, gravida aliquam tincidunt metus himenaeos. 
-            Neque curabitur quisque, sodales sapien, habitasse leo sem lectus torquent interdum eget. 
-          </p>
-        </li>
-        <li class="cs-faq-item">
-          <button class="cs-button">Faucibus sagittis turpis fames?</button>
-          <p class="cs-item-p">
-            Fringilla erat tristique, ac lobortis, sagittis sed viverra nec urna. 
-            Luctus porta donec augue, conubia sollicitudin himenaeos, eros non adipiscing commodo mauris molestie odio
-          </p>
-        </li>
-        <li class="cs-faq-item">
-          <button class="cs-button">Donec porttitor imperdiet, commodo turpis, quisque mi consectetur ut ligula?</button>
-          <p class="cs-item-p">
-              Quam cursus, id taciti consequat. 
-              Sociosqu vel, in porttitor suspendisse. Suscipit nisl nostra, magna ac odio nunc sit.
-          </p>
-        </li>
-        <li class="cs-faq-item">
-          <button class="cs-button">Aenean leo arcu, risus sem mauris libero?</button>
-          <p class="cs-item-p">
-            Taciti consectetur, donec consequat in aliquam.
-            Dapibus non suspendisse senectus, erat litora ultrices blandit elementum. 
-            Curae varius purus, quisque venenatis feugiat dictumst. 
-          </p>
-        </li>
-        <li class="cs-faq-item">
-          <button class="cs-button">Varius mauris aenean, eleifend quam?</button>
-          <p class="cs-item-p">
-             Sodales felis risus, fusce curae eget integer. 
-             Primis in facilisis, erat litora, quisque euismod hac proin fermentum praesent. 
-             Nibh phasellus et, varius cursus, nam accumsan euismod faucibus vel donec.
-          </p>
-        </li>
+        {% endfor %}
       </ul>
 
       <div class="cs-cta">

@@ -1,4 +1,9 @@
-module.exports = {
+// Business identity. Defaults below are the stock starter values; a tenant
+// build (TENANT_FILE set — see src/config/tenant.js) overrides them with the
+// customer's real details via the "client" key of tenant.json.
+const { loadTenant, deepMerge } = require("../config/tenant");
+
+const defaults = {
     name: "Eleventy Starter Template",
     email: "help@eleventystarter.app",
     phoneForTel: "555-557-6614",
@@ -18,7 +23,10 @@ module.exports = {
     },
     //! Make sure you include the file protocol (e.g. https://) and that NO TRAILING SLASH is included
     domain: "https://www.example.com",
+};
+
+module.exports = {
+    ...deepMerge(defaults, loadTenant().client),
     // Passing the isProduction variable for use in HTML templates
     isProduction: process.env.ELEVENTY_ENV === "PROD",
 };
-

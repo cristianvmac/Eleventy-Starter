@@ -35,6 +35,10 @@
 
         <!-- Sitewide Stylesheets and Scripts -->
         <link rel="stylesheet" href="/assets/css/root.css">
+        {% if brand.primary %}
+            <!-- Tenant brand override (multi-tenant builds — see src/config/tenant.js) -->
+            <style>:root{--primary:{{ brand.primary }};--primaryLight:{{ brand.primaryLight }};--secondary:{{ brand.primaryLight }};--secondaryLight:{{ brand.primaryLight }};}</style>
+        {% endif %}
         <script defer src="/assets/js/dark.js"></script>
         <script defer src="/assets/js/nav.js"></script>
 
